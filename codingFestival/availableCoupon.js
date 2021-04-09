@@ -17,10 +17,7 @@ rl.on("line", function(line) {
 		input.push(line);
 	}
 	
-	// console.log(testCount, input)
-	
 	if(input.length === testCount) {
-		// console.log('그만');
 		 rl.close();
 	}
 }).on("close", function() {
@@ -31,7 +28,6 @@ rl.on("line", function(line) {
 		
 		let availableSeasonCoupon = ~~(seasonCoupon/5);
 		let availableCoupon = ~~(totalCoupon/12)
-		// console.log(seasonCoupon, totalCoupon);
 		if(seasonCoupon < 5) {
 			output.push(0);
 		}else {
