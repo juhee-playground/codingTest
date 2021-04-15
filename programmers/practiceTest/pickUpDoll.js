@@ -21,8 +21,9 @@ function solution(board, moves) {
         let boardIndex = moves[i] - 1;
         let popDoll = reverseBoard[boardIndex].pop();
 
+        // 뽑을 인형이 있는지 확인하기
         if(!popDoll) continue;
-        // pickUp이 1보다 큰지
+        // pickUp이 비어있는지 확인하기
         if(!pickUp) {
              pickUp.push(popDoll);
              continue;
