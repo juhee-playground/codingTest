@@ -16,27 +16,23 @@ function solution(board, moves) {
         reverseBoard[j].reverse()
     }
 
-    // console.log(reverseBoard)
     // moves로 한개씩 꺼내기
     for(let i = 0; i < moves.length; i++) {
         let boardIndex = moves[i] - 1;
         let popDoll = reverseBoard[boardIndex].pop();
 
+        if(!popDoll) continue;
         // pickUp이 1보다 큰지
-        if(pickUp.length === 0) {
+        if(!pickUp) {
              pickUp.push(popDoll);
-        }else {
-            // popDoll이 있는지
-            if(popDoll) {
-            // 뽑은 인형을 앞서 뽑았던 인형과 비교하기
-            let disappearDoll = compareWithPerious(pickUp, popDoll);
-                if(disappearDoll) {
-                    answer += 2;
-                }
-            }
+             continue;
+        }
+        // 뽑은 인형을 앞서 뽑았던 인형과 비교하기
+        let disappearDoll = compareWithPerious(pickUp, popDoll);
+        if(disappearDoll) {
+            answer += 2;
         }
     }
-
     return answer;
 }
 
