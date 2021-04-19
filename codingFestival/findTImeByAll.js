@@ -4,7 +4,6 @@ const readline = require('readline');
 (async () => {
 	let rl = readline.createInterface({ 
 		input: process.stdin,
-		// output: process.stdout
 	});
 	
 	let numberOfAttendees = 0;
@@ -27,7 +26,6 @@ const readline = require('readline');
 	}
 	
 	for await (const line of rl) {
-		// console.log('Your input is', line);
 		if(numberOfAttendees === 0) {
 			numberOfAttendees = Number(line);
 		}else {
@@ -38,9 +36,7 @@ const readline = require('readline');
 
 			let startTimeList = [];
 			let endTimeList = [];
-		 	// rl.close();
 			// 함수...
-
 			for(let i = 0; i < collectTimeList.length; i++) {
 				let time = collectTimeList[i];
 				startTimeList.push(time.split("~")[0]);
@@ -67,11 +63,9 @@ const readline = require('readline');
 			}else {
 				collectTime = formatTime(startTimeMax) + " ~ " + formatTime(endTimeMin);
 			}
-			console.log(collectTime);
 			rl.close();
 		}
 	}
-	
 	process.exit();
 })();
 			
