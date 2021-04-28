@@ -3,14 +3,12 @@ function solution(progresses, speeds) {
     const restProgress = progresses.map((progress, index) => 
         Math.ceil((100 - progress) / speeds[index])
     );
-    let releaseDay = 0;
+    let releaseDay = restProgress[0];
     let count = 0;
-    releaseDay = restProgress[0];
     for(let i = 0; i < restProgress.length; i++) {
         // 처음에 릴리즈 한 날이랑 비교
         count++;
         if(i < restProgress.length-1) {
-            console.log(releaseDay, restProgress[i+1], releaseDay < restProgress[i+1]);
             if(releaseDay < restProgress[i+1]) {
                 answer.push(count);
                 count = 0;
@@ -23,6 +21,5 @@ function solution(progresses, speeds) {
             answer.push(count);
         }
     }
-
     return answer;
 }
