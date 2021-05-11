@@ -16,7 +16,6 @@ function solution(bridge_length, weight, truck_weights) {
           for(let i = 0; i < bridge_length; i++) {
               time++;
           }
-          
       // 값 이 크면 다리의 길이만큼 시간 초과
           answer += 2;
           passingTruck.push(crossingTruck[0]);
@@ -24,7 +23,6 @@ function solution(bridge_length, weight, truck_weights) {
       }
   }
   // console.log(time, " 대기: ", waitingTruck, "진행중: ", crossingTruck);
-
 return answer;
 }
 
