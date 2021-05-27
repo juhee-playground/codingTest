@@ -13,7 +13,6 @@ function solution(record) {
           userIdObj[uid] = nick;    
       }
 
-      // console.log(uid, act, actObj[act]);
       if(act !== "Change") {
           let string = `${uid}님이 ${actObj[act]}`;
           arr.push(string);    
