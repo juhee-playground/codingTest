@@ -1,19 +1,18 @@
 function solution(n) {
-  var answer = '';
-  let numbers = [1, 2, 4];
+  let answer = '';
+  let rest = 0;  // 자연수 n을 3으로 나누었을 때 나머지를 저장하기 위해
+  let period = ["4", "1", "2"];
 
-  let mok = n / 3;
-  let namugi = n % 3;
-  console.log(namugi, mok);
+  while(n > 0) {
+    rest = n % 3;
+    n = parseInt(n / 3);
 
-  if(mok === 0) {
-    answer = mok;
-    continue;
+    if(rest === 0) {
+      n = n -1;
+    }
+
+    answer = period[rest] + answer; // 3으로 나누어 떨어지는 경우는, 124 나라에서 앞자리 수가 바뀌거나 숫자의 길이가 바뀌는 구간이기 때문이다.
   }
-  if(namugi === 0) {
-    answer = String((n / 3)- 1).replace(0, 4);
-  }
 
-  
-  return answer;
+return answer;
 }
