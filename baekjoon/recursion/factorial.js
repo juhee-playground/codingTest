@@ -1,3 +1,4 @@
+// #백준 #재귀 #팩토리얼 #10872
 const readline = require('readline');
 
 const rl = readline.createInterface({
