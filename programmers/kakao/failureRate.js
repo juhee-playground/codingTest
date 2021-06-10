@@ -1,3 +1,4 @@
+// #아침코테 #프로그래머스 #level1 #카카오 #실패율
 function solution(N, stages) {
   var answer = [];
   let floorFailure = [];
