@@ -22,7 +22,7 @@ rl.on('line', function(line) {
   if(count === 4) {
     rl.close();
   }
-}).on("close", function factorial() {
+}).on("close", function findNumber() {
   // 함수 구하기
   numberArrLen = input[0][0];
   numberArr = input[1].slice(0, Number(numberArrLen));
