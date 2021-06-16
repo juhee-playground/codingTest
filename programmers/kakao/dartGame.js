@@ -66,8 +66,6 @@ function solution(dartResult) {
         }
       });
   
-      // console.log(dartScoreBoard);
-    
     orders.forEach(order => {
         answer += dartScoreBoard[order].sum;
     });
