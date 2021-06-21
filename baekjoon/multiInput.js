@@ -11,12 +11,12 @@ let input = [];
 let count = 0;
 
 rl.on('line', function(line) {
-  const input = line.split(' ');
-  // 입력 받을 값 한 개 입력하기
-	// input.push(line);
-	console.log(line);
-
-  rl.close();
+  input.push(line.split(' ').map((v) => parseInt(v)));
+  // 입력 받을 갯수 구해서 count 맞춰서 끊어주기
+  count++;
+  if(count === X) {
+    rl.close();
+  }
 }).on("close", function factorial() {
   // 함수 구하기
   

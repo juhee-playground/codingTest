@@ -17,10 +17,23 @@ rl.on('line', function(line) {
 		 rl.close();
 	}
 }).on("close", function() {
+  let num = input[0];
+  let count = 0;
   // 함수 작성란
-  
-
-
+  if(num < 1) {
+    console.log(output);
+    return output += "*"; 
+  }
+  output = pickStar(num, count);
   console.log(output);
+
   process.exit();
 });
+
+function pickStar(num, count) {
+  if(num < 1) {
+    return "*"
+  }
+  count = count++;
+  return pickStar(num, count);
+}
