@@ -1,4 +1,3 @@
-//FIXME: 작업해야함. 이거는 대충 쓴거임.
 
 const readline = require('readline');
 
