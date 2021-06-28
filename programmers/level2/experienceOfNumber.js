@@ -1,3 +1,4 @@
+// #아침코테 #프로그래머스 #level2 #숫자의표현
 function solution(n) {
   var answer = 0;
   let startNumber = 1;
