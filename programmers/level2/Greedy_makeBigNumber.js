@@ -1,32 +1,37 @@
 function solution(number, k) {
-  let picker = [];
-  let stringToNumber = [];
-   k = number.length - k;
-  for(let i = 0; i < number.split('').length; i++) {
-      stringToNumber.push(Number(number.charAt(i)));
-  }
+    let answer = 0;
+    let stringToNumber = [];
+    stringToNumber = number.split("").map(num => Number(num));
 
-  var answer = '';
-  const dfs = (nums, num, arr = []) => {
-      //k개를 선택한다는가정에 k개가 선택 됐다면 출력
-      if (num === k) picker.push([...arr]);
-      else {
-          for (let i = 0; i < nums.length; i++) {
-            arr.push(nums[i]);
-            dfs(nums.slice(i + 1), num + 1, arr);
-            arr.pop();
-          }
-      }
-  };
-  
-  dfs(stringToNumber, null);
+    // 제일 큰 숫자 찾기
+    let maxNumber = Math.max(...stringToNumber);
+    let splitArr = number.split(maxNumber);
+    // 큰 숫자의 왼쪽의 수, 오른쪽에 있는 숫자 나누기
+    let leftNumbers = splitArr[0].split('').map(num => Number(num));
+    let rightNumbers = splitArr[1].split('').map(num => Number(num));
+    
+    // K개 제거
+    for(let i = 1; i <= k; i++) {
+        // 오른쪽 먼저 배열 중 제일 작은 것 부터 제거
+        if(leftNumbers.length !== 0) {
+            removeMinNumber(leftNumbers); 
+            continue;
+        }
+        if(rightNumbers.length > 0) {
+            removeMinNumber(rightNumbers);
+        }
+    }
+    
+    answer = leftNumbers.join("") + maxNumber + rightNumbers.join("");
+    return answer;
+}
 
-  let numberList = [];
-  for(let i = 0; i < picker.length; i++) {
-      numberList.push(Number(picker[i].join('')));
-  }
-  numberList.sort();
-  numberList.reverse();
-  answer = numberList[0].toString();
-  return answer;
+function removeMinNumber(arr) {
+    let minNumber = Math.min.apply(null, arr);
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] === minNumber) {
+            arr.splice(i, 1);
+            return arr;
+       } 
+    }
 }
