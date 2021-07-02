@@ -1,3 +1,4 @@
+// #프로그래머스 #아침코테 #level2 #카카오 #순위검색
 function solution(info, query) {
   var answer = [];
   // info 정리 
