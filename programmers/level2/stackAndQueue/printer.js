@@ -1,3 +1,4 @@
+// #아침코테 #level2 #스택.큐 #프린터
 function solution(priorities, location) {
   let printerStack = [];
   console.log(location);
