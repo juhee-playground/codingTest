@@ -1,4 +1,5 @@
 // #알고리즘뿌시기 #아침코테 #백준 #기본수학1 #벌집
+// 입력값 줄에 딱 한개
 
 const readline = require('readline');
 
