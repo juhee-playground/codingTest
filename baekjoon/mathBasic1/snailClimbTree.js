@@ -28,14 +28,9 @@ rl.on('line', function(line) {
   let nightSlipDistance = parseInt(inputValue[1]);
   let totalTreeHeight = parseInt(inputValue[2]);
 
-  while(climbDistance < totalTreeHeight) {
-    climbDistance += dayCiimbDistance;
-    day++;
-    if(climbDistance >= totalTreeHeight) {
-      break;
-    }
-    climbDistance -= nightSlipDistance;
-  }
+  totalTreeHeight = totalTreeHeight - dayCiimbDistance;
+  day = Math.ceil(totalTreeHeight / (dayCiimbDistance - nightSlipDistance));
+  day += 1;
   
   console.log(day);
   process.exit();
