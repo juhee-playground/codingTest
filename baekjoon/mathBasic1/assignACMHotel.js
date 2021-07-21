@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 
 let inputs = [];
 let testCount = 0;
+let lineCount = 0;
 
 rl.on('line', function(line) {
   if(testCount === 0) {
@@ -26,14 +27,17 @@ rl.on('line', function(line) {
     let inputValue = inputs[i].split(" ");
 
     let hotelHeight = parseInt(inputValue[0]);
+    let hotelWidth = parseInt(inputValue[1]);
     let orderPerson = parseInt(inputValue[2]);
+    let basicCondition = hotelHeight >= 1 && hotelHeight <= 99 && hotelWidth >=1 && hotelWidth <=99;
 
-
-    let roomNumber =  Math.ceil(orderPerson / hotelHeight);
-    let height = orderPerson % hotelHeight;
-    roomNumber = roomNumber < 10 ? "0" + roomNumber : roomNumber;
-
-    console.log(height + roomNumber);
+    if(basicCondition && orderPerson >= 1 && orderPerson <= hotelHeight * hotelWidth) {
+      let roomNumber =  Math.ceil(orderPerson / hotelHeight);
+      let height = orderPerson % hotelHeight === 0 ? hotelHeight : orderPerson % hotelHeight;
+      
+      roomNumber = roomNumber < 10 ? "0" + roomNumber : roomNumber;
+      console.log(`${height}${roomNumber}`);
+    }
   }
 
   process.exit();
