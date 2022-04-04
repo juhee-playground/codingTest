@@ -1,32 +1,18 @@
+// #아침코테 #level2 #탐욕법 #스택 #큰 수 만들기
 function solution(number, k) {
-  let picker = [];
-  let stringToNumber = [];
-   k = number.length - k;
-  for(let i = 0; i < number.split('').length; i++) {
-      stringToNumber.push(Number(number.charAt(i)));
-  }
-
-  var answer = '';
-  const dfs = (nums, num, arr = []) => {
-      //k개를 선택한다는가정에 k개가 선택 됐다면 출력
-      if (num === k) picker.push([...arr]);
-      else {
-          for (let i = 0; i < nums.length; i++) {
-            arr.push(nums[i]);
-            dfs(nums.slice(i + 1), num + 1, arr);
-            arr.pop();
-          }
+    let answer = "";
+    let stackArr = [];
+    for(let i = 0; i < number.length; i++) {
+      let num = number[i];
+      console.log(k, stackArr, stackArr[stackArr.length-1])
+      while(k > 0 && stackArr[stackArr.length-1] < num) {
+        stackArr.pop();
+        k--;
       }
-  };
+      stackArr.push(num);
+    }
+    stackArr.splice(stackArr.length - k , k);
+    answer = stackArr.join("");
   
-  dfs(stringToNumber, null);
-
-  let numberList = [];
-  for(let i = 0; i < picker.length; i++) {
-      numberList.push(Number(picker[i].join('')));
-  }
-  numberList.sort();
-  numberList.reverse();
-  answer = numberList[0].toString();
-  return answer;
+    return answer;
 }
