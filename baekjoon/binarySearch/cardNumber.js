@@ -34,39 +34,37 @@ rl.on('line', function(line) {
   let startIndex = 0;
   let endIndex = haveCardLen-1;
   let midIndex = 0;
-  for(let i = 0; i < haveCardLen; i++)  {
-    midIndex = Math.ceil(startIndex + endIndex / 2);
-    console.log(startIndex, endIndex, midIndex);
-    // midIndex 값이 찾는 값 보다 작을 경우 앞에 버리기
-    if(haveCardArr[midIndex] < findNumberArr[0]) {
-      startIndex = midIndex + 1;
-    }else if(haveCardArr[midIndex] > findNumberArr[0]) {
-      // midIndex 값이 찾는 값 보다 클 경우 뒤에 버리기
-      endIndex = midIndex - 1;
-    }else {
-      // 같을 때 mid값이 제일 첫 자리인지 파악하기
-      if(haveCardArr[midIndex] === haveCardArr[startIndex]) {
-        // mid가 startIndex
-        startIndex = midIndex;
-      }else {
-        /*
-         */
-      }
-      
-      // 같을 때 mid값이 제일 끝 자리인지 파악하기
-      if(haveCardArr[midIndex] === haveCardArr[endIndex]) {
-        endIndex = midIndex;
-      }else {
-        /*
-         */
-      }
-    }
-
+  for(let i = 0; i < findNumberArrLen; i++) {
+    startIndex = findMinBound(haveCardArr, findNumberArr[i]);
+    endIndex = findMaxBound(haveCardArr, findNumberArr[i]);
   }
+  
   console.log(endIndex - startIndex);
   process.exit();
 });
 
-function findBound(num, type) {
-
+function findMaxBound(arr, findNumber) {
+  let startIndex = 0;
+  let endIndex = arr.length-1;
+  let midIndex = 0;
+  for(let i = 0; i < arr.length; i++)  {
+    midIndex = Math.ceil(startIndex + endIndex / 2);
+    console.log(startIndex, endIndex, midIndex);
+    // midIndex 값이 찾는 값 보다 작을 경우 앞에 버리기
+    if(arr[midIndex] > findNumber) {
+      startIndex = midIndex + 1;
+    }else if(arr[midIndex] > findNumber) {
+      // midIndex 값이 찾는 값 보다 클 경우 뒤에 버리기
+      endIndex = midIndex - 1;
+    }else {
+      // 같을 때 mid값이 제일 첫 자리인지 파악하기
+      if(arr[midIndex] === haveCardArr[startIndex]) {
+        // mid가 startIndex
+        startIndex = midIndex;
+        return startIndex;
+      }else {
+        arr.slice()
+      }
+    }
+  }
 }
