@@ -239,3 +239,9 @@ i 는 반복자(iterator)를 나타내는 i라고 생각할 수 있다. i, j, k 
 # 2
 # 3
 # 4
+
+inputNum = int(input())
+n = 0
+
+for i in range(inputNum + 1):
+    print(i)
