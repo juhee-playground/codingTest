@@ -26,3 +26,15 @@ for i in range(1, n+1) :
 
 # 출력 예시
 # 1 2 X 4 5 X 7 8 X
+
+intNum = int(input())
+
+for i in range(1, intNum+1):
+    if i % 10 == 3:
+        print("X",  end=" ")
+    elif i % 10 == 6:
+        print("X",  end=" ")
+    elif i % 10 == 9:
+        print("X",  end=" ")
+    else:
+        print(i, end=" ")
