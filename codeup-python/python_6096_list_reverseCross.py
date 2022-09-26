@@ -77,23 +77,25 @@ data = [];
 for i in range(20) :
   data.append([]);
   for j in range(20) :
-    if i == 9 or i == 11 or j == 9 or j == 11:
-      data[i].append(1);
-    else :
       data[i].append(0);
+
+# 배열 입력하는 법
+for i in range(19) :
+  a = input().split()
+  for j in range(19) :
+    data[i+1][j+1] = int(a[j])
   
-# FIXME: 수정해야해;;;;
 n = int(input())
 for i in range(n) :
-  x,y=input().split()
+  x,y = input().split()
   for j in range(1, 20) :
-    if data[j][int(y)]==0 :
-      data[j][int(y)]=1
+    if data[j][int(y)] == 0 :
+      data[j][int(y)] = 1
     else :
-      data[j][int(y)]=0
+      data[j][int(y)] = 0
 
-    if data[int(x)][j]==0 :
-      data[int(x)][j]=1
+    if data[int(x)][j] == 0 :
+      data[int(x)][j] = 1
     else :
       data[int(x)][j]=0
 
@@ -101,5 +103,4 @@ for i in range(1, 20) :
   for j in range(1, 20) : 
     print(data[i][j], end=" ")
   print()
-
 
