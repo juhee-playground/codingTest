@@ -50,5 +50,30 @@ d = 0 or 1
 # 0 0 1 0 1
 # 0 0 0 0 1
 
+w, h = input().split()
+w = int(w)
+h = int(h)
+n = int(input())
 
+data = [];
+for i in range(w) :
+  data.append([]);
+  for j in range(h) :
+      data[i].append(0);
 
+for i in range(n) :
+  l,d,x,y = input().split()
+  l = int(l)
+  d = int(d)
+  x = int(x)
+  y = int(y)
+  for i in range(int(l)) : 
+    if d == 0:
+      data[x-1][y-1+i] = 1
+    else :
+      data[x-1+i][y-1] = 1
+
+for i in range(w) :
+  for j in range(h) : 
+    print(data[i][j], end=" ")
+  print()
