@@ -22,3 +22,18 @@
 
 # 출력 예시
 # 4.0
+
+grade = input()
+
+def switch(grade):
+  score = {"A":4.0, "B":3.0, "C":2.0, "D": 1.0 , "F": 0.0 }.get(grade[0])
+
+  if(len(grade) > 1):
+    if grade[1] == "+":
+      score += 0.3
+    elif grade[1] == "-":
+      score -= 0.3
+      
+  print(score);
+  
+switch(grade)
