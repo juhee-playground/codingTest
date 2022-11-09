@@ -1,4 +1,4 @@
-# 아침코테 #백준 #파이썬 #클래스에센셜 #최소최대
+# 아침코테 #백준 #파이썬 #클래스1 #최소최대
 
 # 타이틀: 10818 최소, 최대
 # 문제: N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프로그램을 작성하시오.
@@ -24,6 +24,5 @@
 count = int(input());
 
 numbers = list(map(int, input().split()));
-numbers = numbers[:count]
 
 print(min(numbers), max(numbers));
