@@ -5,4 +5,4 @@ const fs = require('fs');
 
 // vscode test시 주석 제거
 const readFileSyncAddress = "../../input.txt";
-const [n, ...arr] = fs.readFileSync(readFileSyncAddress).toString().trim().split(/\s/);
+const input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
